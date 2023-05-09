@@ -14,9 +14,9 @@ class SimpleReport:
 
         fact = min(factored).strftime("%Y-%m-%d")
         val = max(validate).strftime("%Y-%m-%d")
-        comp = companys.most_common(1)[0]
+        comp = companys.most_common()[0]
 
         return f"""
         Data de fabricação mais antiga: {fact}
         Data de validade mais próxima: {val}
-        Empresa com mais produtos: {comp[0]}"""
+        Empresa com mais produtos: {comp}"""
