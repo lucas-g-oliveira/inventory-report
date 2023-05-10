@@ -1,8 +1,10 @@
 from inventory_report.reports.simple_report import SimpleReport
 from inventory_report.reports.complete_report import CompleteReport
-import xml.etree.ElementTree as ET
+
+# import xml.etree.ElementTree as ET
 import csv
-import json
+
+# import json
 
 
 class Inventory:
@@ -11,7 +13,7 @@ class Inventory:
         with open(path, "r") as file:
             return [*csv.DictReader(file)]
 
-    @staticmethod
+    """@staticmethod
     def __from_xml(path):
         file = ET.parse(path).getroot()
         data = {}
@@ -22,7 +24,7 @@ class Inventory:
     @staticmethod
     def __from_json(path):
         with open(path) as file:
-            return json.load(file)
+            return json.load(file) """
 
     @classmethod
     def import_data(cls, path, type_report):
@@ -31,11 +33,11 @@ class Inventory:
             "completo": CompleteReport.generate,
         }
         type_file = {
-            "json": cls.__from_json,
-            "xml": cls.__from_xml,
+            # "json": cls.__from_json,
+            #  "xml": cls.__from_xml,
             "csv": cls.__from_csv,
         }
-        file = type_file[path.split('.')[-1]](path)
+        file = type_file[path.split(".")[-1]](path)
         return report[type_report](file)
 
 
