@@ -6,18 +6,19 @@ class CompleteReport(SimpleReport):
     @staticmethod
     def generate(array: list):
         smpl = SimpleReport.generate(array)
-        complete = "\nProdutos estocados por empresa:"
+        complete = "Produtos estocados por empresa:\n"
         prod_per_company = Counter([comp["nome_da_empresa"] for comp in array])
         companys = []
 
         for i in array:
-            print(i['nome_da_empresa'])
+            """ print(i['nome_da_empresa']) """
             if not (i["nome_da_empresa"]) in companys:
                 companys.append(i["nome_da_empresa"])
 
         for comp in companys:
-            complete += f"\n- {comp}: {prod_per_company[comp]}"
+            complete += f"- {comp}: {prod_per_company[comp]}\n"
 
-        print(companys)
+        """ print(companys) """
 
-        return smpl + complete
+        return f"""{smpl}
+{complete}"""
