@@ -30,15 +30,15 @@ class Inventory:
             return json.load(file)
 
     __report = {
-            "simples": SimpleReport.generate,
-            "completo": CompleteReport.generate,
-        }
+        "simples": SimpleReport.generate,
+        "completo": CompleteReport.generate,
+    }
 
     __type_file = {
-            "json": __from_json,
-            "xml": __from_xml,
-            "csv": __from_csv,
-        }
+        "json": __from_json,
+        "xml": __from_xml,
+        "csv": __from_csv,
+    }
 
     @classmethod
     def import_data(cls, path, type_report):
@@ -46,13 +46,13 @@ class Inventory:
         return cls.__report[type_report](file)
 
 
-p1 = "/home/lucas/Documentos/1-Trybe/3-Projetos-Trybe/30 - Inventory Report/"
-p2 = "sd-024-b-inventory-report/inventory_report/data/inventory"
+# p1 = "/home/lucas/Documentos/1-Trybe/3-Projetos-Trybe/30 - Inventory Report/"
+# p2 = "sd-024-b-inventory-report/inventory_report/data/inventory"
 # p3 = ".csv"
-p3 = ".xml"
+# p3 = ".xml"
 # p3 = ".json"
 
 
-path = p1 + p2 + p3
-print(Inventory.import_data(f"{path}", "simples"))
-print(Inventory.import_data(f"{path}", "completo"))
+# path = p1 + p2 + p3
+# print(Inventory.import_data(f"{path}", "simples"))
+# print(Inventory.import_data(f"{path}", "completo"))
