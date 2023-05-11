@@ -44,15 +44,3 @@ class Inventory:
     def import_data(cls, path, type_report):
         file = cls.__type_file[path.split(".")[-1]](path)
         return cls.__report[type_report](file)
-
-
-# p1 = "/home/lucas/Documentos/1-Trybe/3-Projetos-Trybe/30 - Inventory Report/"
-# p2 = "sd-024-b-inventory-report/inventory_report/data/inventory"
-# p3 = ".csv"
-# p3 = ".xml"
-# p3 = ".json"
-
-
-# path = p1 + p2 + p3
-# print(Inventory.import_data(f"{path}", "simples"))
-# print(Inventory.import_data(f"{path}", "completo"))

@@ -1,12 +1,10 @@
 from inventory_report.importer.importer import Importer
-from inventory_report.reports.simple_report import SimpleReport
-from inventory_report.reports.complete_report import CompleteReport
 import xml.etree.ElementTree as ET
 
 
 class XmlImporter(Importer):
     @staticmethod
-    def import_data(path: str, type: str) -> str:
+    def import_data(path: str):
         if path.split(".")[-1] != "xml":
             raise ValueError("Arquivo inválido")
         file = ET.parse(path)
@@ -21,8 +19,4 @@ class XmlImporter(Importer):
                 k_i += 1
             dict_data.append(obj_temp)
             o_i += 1
-        t = {
-            "simples": SimpleReport.generate,
-            "completo": CompleteReport.generate,
-        }
-        return t[type](dict_data)
+        return dict_data
